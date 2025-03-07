@@ -1,0 +1,38 @@
+&spi1 {
+    status = "okay";
+    sck-pin = <45>;  // P1.13
+    mosi-pin = <47>; // P1.15
+    cs-gpios = <&gpio1 11 GPIO_ACTIVE_LOW>; // P1.11
+
+    shifter: shift_register@0 {
+        compatible = "zmk,gpio-595";
+        status = "okay";
+        gpio-controller;
+        #gpio-cells = <2>;
+        ngpios = <8>;  // Assuming a 74HC595 with 8 outputs
+        spi-max-frequency = <2000000>; // 2 MHz
+        reg = <0>;
+    };
+};
+
+&kscan {
+    compatible = "zmk,kscan-matrix-transform";
+    label = "KS";
+
+    // Define row pins connected directly to the MCU
+    row-gpios = <&gpio0 2 GPIO_ACTIVE_HIGH>, 
+                <&gpio0 3 GPIO_ACTIVE_HIGH>, 
+                <&gpio0 4 GPIO_ACTIVE_HIGH>, 
+                <&gpio0 5 GPIO_ACTIVE_HIGH>;
+
+    // Define column pins connected via the shift register
+    col-gpios = <&shifter 0 GPIO_ACTIVE_HIGH>, 
+                <&shifter 1 GPIO_ACTIVE_HIGH>, 
+                <&shifter 2 GPIO_ACTIVE_HIGH>, 
+                <&shifter 3 GPIO_ACTIVE_HIGH>, 
+                <&shifter 4 GPIO_ACTIVE_HIGH>, 
+                <&shifter 5 GPIO_ACTIVE_HIGH>, 
+                <&shifter 6 GPIO_ACTIVE_HIGH>;
+
+    diode-direction = "col2row"; // Change if needed
+};
