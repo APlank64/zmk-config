@@ -24,3 +24,8 @@ kscan0: kscan_0 {
         , <&shifter 2 GPIO_ACTIVE_HIGH>
     ;
 };
+
+&led_strip {
+    chain-length = <10>;
+};
+
