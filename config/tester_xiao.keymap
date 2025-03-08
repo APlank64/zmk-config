@@ -10,8 +10,7 @@
                         &kp TAB    &kp Q   &kp W   &kp E   &kp R   &kp T  &kp SPACE 
                         &kp CAPS   &kp A   &kp S   &kp D   &kp F   &kp G  &kp LALT 
                         &kp LSHIFT &kp Z   &kp X   &kp C   &kp V   &kp LCRTL
-            >;
-                        
+            >;               
         };
     };
 };
