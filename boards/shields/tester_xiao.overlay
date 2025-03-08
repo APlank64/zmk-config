@@ -1,39 +1,26 @@
-&spi1 {
+&xiao_spi {
     status = "okay";
-    sck-pin = <45>;  // P1.13
-    mosi-pin = <47>; // P1.15
-    cs-gpios = <&gpio1 11 GPIO_ACTIVE_LOW>; // P1.11
-
-    shifter: shift_register@0 {
+    cs-gpios = <&xiao_d 9 GPIO_ACTIVE_LOW>;
+    shifter: 595@0 {
         compatible = "zmk,gpio-595";
         status = "okay";
         gpio-controller;
-        #gpio-cells = <2>;
-        ngpios = <8>;  // Assuming a 74HC595 with 8 outputs
-        spi-max-frequency = <2000000>; // 2 MHz
+        spi-max-frequency = <200000>;
         reg = <0>;
+        #gpio-cells = <2>;
+        ngpios = <8>;
     };
 };
 
-&kscan {
-    compatible = "zmk,kscan-matrix-transform";
-    label = "KS";
-
-    // Define row pins connected directly to the MCU
-   row-gpios = <&gpio0 2 GPIO_ACTIVE_LOW>,  // ROW0 = P0.02
-                    <&gpio0 3 GPIO_ACTIVE_LOW>,  // ROW1 = P0.03
-                    <&gpio0 28 GPIO_ACTIVE_LOW>, // ROW2 = P0.28
-                    <&gpio0 29 GPIO_ACTIVE_LOW>; // ROW3 = P0.29
-
-    // Define column pins connected via the shift register
-    col-gpios = <&shifter 0 GPIO_ACTIVE_HIGH>, 
-                <&shifter 1 GPIO_ACTIVE_HIGH>, 
-                <&shifter 2 GPIO_ACTIVE_HIGH>, 
-                <&shifter 3 GPIO_ACTIVE_HIGH>, 
-                <&shifter 4 GPIO_ACTIVE_HIGH>, 
-                <&shifter 5 GPIO_ACTIVE_HIGH>, 
-                <&shifter 6 GPIO_ACTIVE_HIGH>;
-
-    polling-interval-ms = <1>; // Scan every 1ms (adjustable)
-    diode-direction = "col2row"; // Change if needed
+kscan0: kscan_0 {
+    compatible = "zmk,kscan-gpio-matrix";
+    diode-direction = "col2row";
+    col-gpios
+        = <&shifter 7 GPIO_ACTIVE_HIGH>
+        , <&shifter 6 GPIO_ACTIVE_HIGH>
+        , <&shifter 5 GPIO_ACTIVE_HIGH>
+        , <&shifter 4 GPIO_ACTIVE_HIGH>
+        , <&shifter 3 GPIO_ACTIVE_HIGH>
+        , <&shifter 2 GPIO_ACTIVE_HIGH>
+    ;
 };
