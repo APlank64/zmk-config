@@ -1,4 +1,4 @@
-#include "my_keyboard.dtsi"
+#include "planke.dtsi"
 
 &spi2_default {
     group1 {
