@@ -20,5 +20,5 @@
 ---
 include:
   - board: seeeduino_xiao_ble
-    shield: My_Keyboard
+    shield: planke
     snippet: zmk-usb-logging
