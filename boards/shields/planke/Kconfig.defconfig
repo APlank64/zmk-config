@@ -1,1 +1,10 @@
+if SHIELD_PLANKE
 
+# Name must be less than 16 characters long!
+config ZMK_KEYBOARD_NAME
+    default "planke"
+
+config SPI
+    default y
+
+endif
