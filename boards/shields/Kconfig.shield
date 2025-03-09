@@ -1,4 +1,4 @@
 # No whitespace after the comma or in your part name!
 config SHIELD_MY_KEYBOARD
-    def_bool $(shields_list_contains,My_keyboard)
+    def_bool $(shields_list_contains,My_Keyboard)
     select SPI
