@@ -1,5 +1,7 @@
 #include "my_keyboard.dtsi"
 
+&xiao_serial { status = "disabled"; };
+
 &xiao_spi {
     status = "okay";
     cs-gpios = <&xiao_d 6 GPIO_ACTIVE_LOW>;
