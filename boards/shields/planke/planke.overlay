@@ -1,4 +1,5 @@
 #include <dt-bindings/zmk/matrix_transform.h>
+#include "planke.dtsi"
 
 / {
      chosen {
@@ -106,4 +107,8 @@
                           LED_COLOR_ID_RED
                           LED_COLOR_ID_BLUE>;
   };
+};
+
+&left_encoder {
+    status = "okay";
 };
