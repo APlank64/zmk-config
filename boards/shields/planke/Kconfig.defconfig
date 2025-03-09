@@ -9,6 +9,6 @@ config SPI
 
 CONFIG_ZMK_RGB_UNDERGLOW=y
 # Use the STRIP config specific to the LEDs you're using
-CONFIG_SK6812_STRIP=y
+CONFIG_WS2812_STRIP=y
 
 endif
