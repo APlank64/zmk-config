@@ -17,7 +17,7 @@ sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 };
 
 &led_strip {
-    chain-length = <10>;
+    chain-length = <26>;
 };
 
 
