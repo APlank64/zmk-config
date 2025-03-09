@@ -14,7 +14,7 @@
     };
 };
 
-&xiao_spi {
+&xiao_spi2 {
     status = "okay";
     cs-gpios = <&xiao_d 6 GPIO_ACTIVE_LOW>;
     shifter: 595@0 {
