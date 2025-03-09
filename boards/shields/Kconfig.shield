@@ -1,4 +1,0 @@
-# No whitespace after the comma or in your part name!
-config SHIELD_PLANKE
-    def_bool $(shields_list_contains,planke)
-    select SPI
