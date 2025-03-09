@@ -2,7 +2,3 @@
 config SHIELD_MY_KEYBOARD_LEFT
     def_bool $(shields_list_contains,my_keyboard_left)
     select SPI
-
-# No whitespace after the comma or in your part name!
-config SHIELD_MY_KEYBOARD_RIGHT
-    def_bool $(shields_list_contains,my_keyboard_right)
