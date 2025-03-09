@@ -107,3 +107,7 @@
                           LED_COLOR_ID_BLUE>;
   };
 };
+
+&left_encoder {
+    status = "okay";
+};
