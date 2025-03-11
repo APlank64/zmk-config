@@ -20,4 +20,8 @@
     chain-length = <26>;
 };
 
-
+/ {
+     chosen {
+        zmk,underglow = &led_strip;
+     };
+};
