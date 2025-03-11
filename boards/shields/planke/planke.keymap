@@ -15,6 +15,9 @@
             >;               
         };
     };
+    &led_strip {
+        chain-length = <26>;
+   };
 };
 
 &led_strip {
